@@ -13,11 +13,11 @@ document.addEventListener('DOMContentLoaded', () => {
         flower.className = 'ascii-flower';
         flower.innerText = flowers[Math.floor(Math.random() * flowers.length)];
         
-        const startX = Math.random() * 100 + 'vw';
-        const endX = (Math.random() * 100 - 10) + 'vw';
-        const duration = (Math.random() * 20 + 15) + 's';
-        const opacity = Math.random() * 0.5 + 0.3;
-        const size = (Math.random() * 0.5 + 0.8) + 'rem';
+        const startX = Math.random() * 110 - 5 + 'vw';
+        const endX = (parseFloat(startX) + (Math.random() * 20 - 10)) + 'vw';
+        const duration = (Math.random() * 25 + 10) + 's';
+        const opacity = Math.random() * 0.4 + 0.1;
+        const size = (Math.random() * 1.2 + 0.5) + 'rem';
 
         flower.style.setProperty('--startX', startX);
         flower.style.setProperty('--endX', endX);
@@ -35,12 +35,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Initial batch
-    for(let i=0; i<40; i++) {
-        setTimeout(createFlower, Math.random() * 5000);
+    for(let i=0; i<60; i++) {
+        setTimeout(createFlower, Math.random() * 3000);
     }
 
     // Continue spawning
-    setInterval(createFlower, 1000);
+    setInterval(createFlower, 500);
 
     // Intersection Observer for fade-in animations
     const observerOptions = {
