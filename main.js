@@ -35,12 +35,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Initial batch
-    for(let i=0; i<15; i++) {
-        setTimeout(createFlower, Math.random() * 10000);
+    for(let i=0; i<40; i++) {
+        setTimeout(createFlower, Math.random() * 5000);
     }
 
     // Continue spawning
-    setInterval(createFlower, 3000);
+    setInterval(createFlower, 1000);
 
     // Intersection Observer for fade-in animations
     const observerOptions = {

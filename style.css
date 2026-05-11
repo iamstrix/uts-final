@@ -46,6 +46,7 @@ body {
     color: var(--text-color);
     animation: float var(--duration) linear infinite;
     user-select: none;
+    pointer-events: none;
 }
 
 .ascii-hero {
