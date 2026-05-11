@@ -1,0 +1,329 @@
+:root {
+    --bg-color: #ffffff;
+    --text-color: #1a1a1a;
+    --accent-color: #4a4a4a;
+    --bg-alt: #f9f9f9;
+    --font-serif: 'Playfair Display', serif;
+    --font-sans: 'Inter', sans-serif;
+    --transition-ease: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.background-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('floral_pattern_texture_1778514375078.png');
+    background-repeat: repeat;
+    opacity: 0.03;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Typography */
+h1, h2, h3 {
+    font-family: var(--font-serif);
+    font-weight: 700;
+}
+
+.section-number {
+    display: block;
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    font-style: italic;
+    color: #888;
+    margin-bottom: 0.5rem;
+    letter-spacing: 2px;
+}
+
+/* Sections */
+.section {
+    min-height: 100vh;
+    padding: 100px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.container {
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* Hero Section */
+.hero {
+    background-color: var(--bg-color);
+    text-align: center;
+    padding-top: 0;
+}
+
+.hero-content {
+    z-index: 2;
+    margin-bottom: 40px;
+}
+
+.subtitle {
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    opacity: 0.6;
+}
+
+.main-title {
+    font-size: clamp(4rem, 10vw, 8rem);
+    line-height: 1;
+    margin-bottom: 1rem;
+    animation: fadeInUp 1.2s ease;
+}
+
+.tagline {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    font-style: italic;
+    opacity: 0.8;
+}
+
+.hero-illustration {
+    max-width: 500px;
+    width: 90%;
+    margin: 0 auto;
+    filter: grayscale(1);
+    opacity: 0.8;
+    transition: var(--transition-ease);
+}
+
+.hero-illustration img {
+    width: 100%;
+    height: auto;
+}
+
+.hero-illustration:hover {
+    transform: scale(1.02);
+    opacity: 1;
+}
+
+.scroll-indicator {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.scroll-indicator .line {
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(to bottom, var(--text-color), transparent);
+    animation: scrollLine 2s infinite;
+}
+
+.scroll-indicator .text {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Table of Contents */
+.toc-nav {
+    position: sticky;
+    top: 0;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #eee;
+    z-index: 100;
+    padding: 20px 0;
+    transition: var(--transition-ease);
+}
+
+.toc-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.toc-inner h2 {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.toc-inner ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-bottom: 5px;
+}
+
+.toc-inner ul::-webkit-scrollbar {
+    height: 2px;
+}
+
+.toc-inner ul::-webkit-scrollbar-thumb {
+    background: #eee;
+}
+
+.toc-inner a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 0.8rem;
+    font-weight: 600;
+    transition: var(--transition-ease);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.toc-inner a span {
+    font-family: var(--font-serif);
+    font-style: italic;
+    opacity: 0.4;
+}
+
+.toc-inner a:hover {
+    color: #888;
+}
+
+/* Content Sections */
+.content-section {
+    padding: 150px 20px;
+}
+
+.alternate {
+    background-color: var(--bg-alt);
+}
+
+.section-title {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    line-height: 1.2;
+}
+
+.content {
+    font-size: 1.1rem;
+    color: #444;
+}
+
+.lead {
+    font-size: 1.4rem;
+    font-family: var(--font-serif);
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+}
+
+blockquote {
+    border-left: 2px solid var(--text-color);
+    padding-left: 2rem;
+    margin: 3rem 0;
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    font-style: italic;
+}
+
+.assessment-container {
+    margin-top: 3rem;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border: 1px solid #eee;
+}
+
+.assessment-container embed {
+    display: block;
+    border: none;
+}
+
+.placeholder-assessment {
+    margin-top: 3rem;
+    padding: 40px;
+    border: 1px dashed #ccc;
+    background: #fff;
+    text-align: center;
+    font-style: italic;
+    color: #888;
+    border-radius: 4px;
+}
+
+/* Footer */
+footer {
+    padding: 50px 20px;
+    text-align: center;
+    border-top: 1px solid #eee;
+    font-size: 0.9rem;
+    opacity: 0.6;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scrollLine {
+    0% { transform: scaleY(0); transform-origin: top; }
+    50% { transform: scaleY(1); transform-origin: top; }
+    50.1% { transform: scaleY(1); transform-origin: bottom; }
+    100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: var(--transition-ease);
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .toc-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .main-title {
+        font-size: 3.5rem;
+    }
+}
