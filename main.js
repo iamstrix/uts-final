@@ -1,4 +1,47 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const asciiBackground = document.getElementById('ascii-background');
+    const flowers = [
+        "  @\n\\|/\n |",
+        " .:.\n- : -\n ' '",
+        " ( )\n-+- \n( )",
+        "  *\n / \\\n  |",
+        "  _\n ( )\n  |"
+    ];
+
+    function createFlower() {
+        const flower = document.createElement('div');
+        flower.className = 'ascii-flower';
+        flower.innerText = flowers[Math.floor(Math.random() * flowers.length)];
+        
+        const startX = Math.random() * 100 + 'vw';
+        const endX = (Math.random() * 100 - 10) + 'vw';
+        const duration = (Math.random() * 20 + 15) + 's';
+        const opacity = Math.random() * 0.5 + 0.3;
+        const size = (Math.random() * 0.5 + 0.8) + 'rem';
+
+        flower.style.setProperty('--startX', startX);
+        flower.style.setProperty('--endX', endX);
+        flower.style.setProperty('--duration', duration);
+        flower.style.opacity = opacity;
+        flower.style.fontSize = size;
+        flower.style.left = startX;
+
+        asciiBackground.appendChild(flower);
+
+        // Remove flower after animation ends
+        setTimeout(() => {
+            flower.remove();
+        }, parseFloat(duration) * 1000);
+    }
+
+    // Initial batch
+    for(let i=0; i<15; i++) {
+        setTimeout(createFlower, Math.random() * 10000);
+    }
+
+    // Continue spawning
+    setInterval(createFlower, 3000);
+
     // Intersection Observer for fade-in animations
     const observerOptions = {
         threshold: 0.1

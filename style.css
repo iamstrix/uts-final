@@ -26,17 +26,43 @@ body {
     overflow-x: hidden;
 }
 
-.background-overlay {
+.ascii-background {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('floral_pattern_texture_1778514375078.png');
-    background-repeat: repeat;
-    opacity: 0.03;
     pointer-events: none;
     z-index: -1;
+    overflow: hidden;
+    opacity: 0.15;
+}
+
+.ascii-flower {
+    position: absolute;
+    font-family: monospace;
+    font-size: 1.2rem;
+    white-space: pre;
+    color: var(--text-color);
+    animation: float var(--duration) linear infinite;
+    user-select: none;
+}
+
+.ascii-hero {
+    font-family: monospace;
+    font-size: 2rem;
+    line-height: 1.2;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+@keyframes float {
+    from {
+        transform: translate(var(--startX), 110vh) rotate(0deg);
+    }
+    to {
+        transform: translate(var(--endX), -10vh) rotate(360deg);
+    }
 }
 
 /* Typography */
